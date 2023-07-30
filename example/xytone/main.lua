@@ -17,7 +17,7 @@ function juno.onLoad()
     for i in ipairs(vis) do
       vis[i] = nil
     end
-    -- Process audio                               
+    -- Process audio
     for i = 1, #t, 2 do
       local dt = 1 / 44100
       -- Interp freq and gain (to avoid audible "steps" on high buffer size)
