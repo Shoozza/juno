@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 import os, sys, shutil, platform, time
 import cembed
 
@@ -48,7 +48,7 @@ def clearup():
 def main():
   global FLAGS, SOURCE, LINK
 
-  print "initing..."
+  print("initing...")
   starttime = time.time()
 
   # Handle args
@@ -63,10 +63,10 @@ def main():
 
   # Handle "nojit" option -- compile with normal embedded Lua instead
   if "nojit" in sys.argv:
-    LINK = filter(lambda x:"lua" not in x, LINK)
+    LINK = [x for x in LINK if "lua" not in x]
     SOURCE += ["src/lib/lua51/*.c"]
 
-  print "building (" + build + ")..."
+  print("building (" + build + ")...")
 
   # Make sure there arn't any temp files left over from a previous build
   clearup()
@@ -81,40 +81,40 @@ def main():
   for filename in os.listdir(EMBED_DIR):
     fullname = EMBED_DIR + "/" + filename
     res = cembed.process(fullname)
-    open(TEMPSRC_DIR + "/" + cembed.safename(fullname) + ".h", "wb").write(res)
+    open(TEMPSRC_DIR + "/" + cembed.safename(fullname) + ".h", "w").write(res)
 
   # Build
   cmd = fmt(
-    "{compiler} -o {output} {flags} {source} {include} {link} {define} " + 
+    "{compiler} -o {output} {flags} {source} {include} {link} {define} " +
     "{extra}",
     {
       "compiler"  : COMPILER,
       "output"    : OUTPUT,
       "source"    : " ".join(SOURCE),
-      "include"   : " ".join(map(lambda x:"-I" + x, INCLUDE)),
-      "link"      : " ".join(map(lambda x:"-l" + x, LINK)),
-      "define"    : " ".join(map(lambda x:"-D" + x, DEFINE)),
+      "include"   : " ".join(["-I" + x for x in INCLUDE]),
+      "link"      : " ".join(["-l" + x for x in LINK]),
+      "define"    : " ".join(["-D" + x for x in DEFINE]),
       "flags"     : " ".join(FLAGS),
       "extra"     : EXTRA,
     })
 
   if verbose:
-    print cmd
+    print(cmd)
 
-  print "compiling..."
+  print("compiling...")
   res = os.system(cmd)
 
   if build == "release":
-    print "stripping..."
+    print("stripping...")
     os.system("strip %s" % OUTPUT)
 
-  print "clearing up..."
+  print("clearing up...")
   clearup()
 
   if res == 0:
-    print "done (%.2fs)" % (time.time() - starttime)
+    print("done (%.2fs)" % (time.time() - starttime))
   else:
-    print "done with errors"
+    print("done with errors")
   sys.exit(res)
 
 

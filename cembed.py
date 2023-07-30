@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 import os, sys, random, re
 
 def fmt(fmt, dic):
@@ -10,7 +10,7 @@ def fmt(fmt, dic):
 def makeArray(data):
   i = [0]
   def fn(x):
-    x = str(ord(x)) + ","
+    x = str(x) + ","
     if i[0] + len(x) > 78:
       i[0] = len(x)
       x = '\n' + x
@@ -47,10 +47,10 @@ def process(filenames):
 
 def main():
   if len(sys.argv) < 2:
-    print "usage: embed FILENAMES"
+    print("usage: embed FILENAMES")
     sys.exit(1)
 
-  print process(sys.argv[1:])
+  print(process(sys.argv[1:]))
 
 
 if __name__ == "__main__":
