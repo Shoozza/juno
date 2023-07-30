@@ -20,7 +20,7 @@ EXTRA = ""
 
 if platform.system() == "Windows":
   OUTPUT += ".exe"
-  LINK += [ "mingw32", "lua51", "SDLmain", "SDL" ]
+  LINK += [ "mingw32", "lua5.1", "SDLmain", "SDL" ]
   FLAGS += [ "-mwindows" ]
 
 if platform.system() == "Linux":
