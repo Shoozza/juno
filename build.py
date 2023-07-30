@@ -54,7 +54,7 @@ def main():
   # Handle args
   build = "debug" if "debug" in sys.argv else "release"
   verbose = "verbose" in sys.argv
-  
+
   # Handle build type
   if build == "debug":
     FLAGS += [ "-g" ]
@@ -67,7 +67,7 @@ def main():
     SOURCE += ["src/lib/lua51/*.c"]
 
   print "building (" + build + ")..."
-  
+
   # Make sure there arn't any temp files left over from a previous build
   clearup()
 
@@ -97,7 +97,7 @@ def main():
       "flags"     : " ".join(FLAGS),
       "extra"     : EXTRA,
     })
- 
+
   if verbose:
     print cmd
 
@@ -119,5 +119,5 @@ def main():
 
 
 if __name__ == "__main__":
-  main() 
+  main()
 
