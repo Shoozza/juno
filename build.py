@@ -20,7 +20,7 @@ EXTRA = ""
 
 if platform.system() == "Windows":
   OUTPUT += ".exe"
-  LINK += [ "mingw32", "luajit-5.1", "SDLmain", "SDL" ]
+  LINK += [ "mingw32", "luajit-5.1", "SDLmain", "SDL", "dxguid", "winmm" ]
   FLAGS += [ "-mwindows" ]
 
 if platform.system() == "Linux":
@@ -65,6 +65,10 @@ def main():
   if "nojit" in sys.argv:
     LINK = [x for x in LINK if "lua" not in x]
     SOURCE += ["src/lib/lua51/*.c"]
+
+  # Handle "static" option -- link dependencies statically
+  if "static" in sys.argv:
+    FLAGS += ["-static"]
 
   print("building (" + build + ")...")
 
