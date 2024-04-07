@@ -1,4 +1,4 @@
-/** 
+/**
  * Copyright (c) 2015 rxi
  *
  * This library is free software; you can redistribute it and/or modify it
@@ -26,7 +26,7 @@
 struct Source;
 struct SourceEvent;
 
-typedef void (*SourceEventHandler)(struct Source*, struct SourceEvent*); 
+typedef void (*SourceEventHandler)(struct Source*, struct SourceEvent*);
 
 typedef struct Source {
   int rawBufLeft[SOURCE_BUFFER_MAX];

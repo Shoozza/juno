@@ -21,8 +21,8 @@ end
 local defaultFont = juno.Font.fromEmbedded()
 
 local fontTexCache = {}
-setmetatable(fontTexCache, { 
-  __index = function(t, k) 
+setmetatable(fontTexCache, {
+  __index = function(t, k)
     fontTexCache[k] = {}
     return fontTexCache[k]
   end,

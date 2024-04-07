@@ -1,4 +1,4 @@
-/** 
+/**
  * Copyright (c) 2015 rxi
  *
  * This library is free software; you can redistribute it and/or modify it
@@ -76,7 +76,7 @@ static int l_font_fromEmbedded(lua_State *L) {
   #include "font_ttf.h"
   int fontsize = luaL_optint(L, 1, DEFAULT_FONTSIZE);
   Font *self = newFont(L);
-  const char *err = loadFontFromMemory(self, font_ttf, sizeof(font_ttf), 
+  const char *err = loadFontFromMemory(self, font_ttf, sizeof(font_ttf),
                                        fontsize);
   if (err) luaL_error(L, "%s", err);
   return 1;

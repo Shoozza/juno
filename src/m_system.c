@@ -1,4 +1,4 @@
-/** 
+/**
  * Copyright (c) 2015 rxi
  *
  * This library is free software; you can redistribute it and/or modify it
@@ -122,9 +122,9 @@ static int l_system_info(lua_State *L) {
   if (!strcmp(str, "os")) {
 #if _WIN32
     lua_pushstring(L, "windows");
-#elif __linux__ 
+#elif __linux__
     lua_pushstring(L, "linux");
-#elif __FreeBSD__ 
+#elif __FreeBSD__
     lua_pushstring(L, "bsd");
 #elif __APPLE__
     lua_pushstring(L, "osx");

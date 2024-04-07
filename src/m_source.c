@@ -1,4 +1,4 @@
-/** 
+/**
  * Copyright (c) 2015 rxi
  *
  * This library is free software; you can redistribute it and/or modify it
@@ -62,7 +62,7 @@ static lua_State *luaState;
  *                          +-------|----------+
  *                          | ......>ooooooooo |
  *                          | . +----------+ o |
- *         Past samples ----- . |          | o --- Future samples 
+ *         Past samples ----- . |          | o --- Future samples
  *                          | . +----------+ o |
  *                          | ............oooo |
  *                          +------------|-----+
@@ -91,7 +91,7 @@ static lua_State *luaState;
  *  --------
  *
  *  All commands issued by lua are pushed to the command vector (`commands`).
- *  
+ *
  *  In the audio thread's callback each command is processed via
  *  `source_processCommand()` which also clears the vector. Each Source's audio
  *  is then processed via `source_ProcessAllSources()` (see [Process Chain]
@@ -170,7 +170,7 @@ static void recalcGains(Source *self) {
   double gain = MAX(self->gain, 0.);
   /* Get linear gains */
   left  = ((pan < 0.) ? 1. : (1. - pan)) * gain;
-  right = ((pan > 0.) ? 1. : (1. + pan)) * gain; 
+  right = ((pan > 0.) ? 1. : (1. + pan)) * gain;
   /* Apply curve */
   left = left * left;
   right = right * right;
@@ -310,7 +310,7 @@ static void onEventOgg(Source *s, SourceEvent *e) {
     case SOURCE_EVENT_REWIND:
       stb_vorbis_seek_start(s->oggStream);
       break;
-      
+
     case SOURCE_EVENT_PROCESS: {
       int i, n;
       short buf[SOURCE_BUFFER_MAX];

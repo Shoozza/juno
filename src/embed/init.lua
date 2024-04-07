@@ -127,7 +127,7 @@ end
 function juno.onError(msg, stacktrace)
   -- Create and print error string
   local tab = "    "
-  local str = 
+  local str =
     msg:gsub("\t", tab):gsub("\n+$", "") .. "\n\n" ..
     stacktrace:gsub("\t", tab)
   print("Error:\n" .. str)
@@ -142,13 +142,13 @@ function juno.onError(msg, stacktrace)
 
   --  Init error state
   local font, bigfont
-  local done = false 
+  local done = false
   local alpha = 0
 
   function juno.onUpdate()
     -- The initialisation of the error state's graphics is defered to the
     -- first onUpdate() call in case the error occurs in the audio thread in
-    -- which case it won't be able to change the openGL state 
+    -- which case it won't be able to change the openGL state
     juno.graphics.reset()
     juno.graphics.setClearColor(.15, .16, .2)
     font = juno.Font.fromEmbedded(14)
@@ -164,7 +164,7 @@ function juno.onError(msg, stacktrace)
   end
 
   function juno.onAudio() end
-   
+
   function juno.onDraw()
     juno.graphics.setAlpha(alpha)
     juno.graphics.drawText(bigfont, "Error", 40, 40)
@@ -220,7 +220,7 @@ package.path = package.path .. ";?/init.lua"
 
 
 -------------------------------------------------------------------------------
--- Init config    
+-- Init config
 -------------------------------------------------------------------------------
 
 local c = {}
@@ -256,7 +256,7 @@ juno.fs.mount(path)
 
 
 -------------------------------------------------------------------------------
--- Init modules   
+-- Init modules
 -------------------------------------------------------------------------------
 
 juno.graphics.init(config.width, config.height, config.title,
@@ -267,7 +267,7 @@ juno.audio.init(config.samplerate, config.buffersize)
 
 
 -------------------------------------------------------------------------------
--- Init project   
+-- Init project
 -------------------------------------------------------------------------------
 
 if juno.fs.exists("main.lua") then
@@ -283,14 +283,14 @@ else
 
   function juno.onLoad()
     juno.graphics.setClearColor(0.15, 0.15, 0.15)
-    for i = 1, 30 do 
+    for i = 1, 30 do
       local p = {
         x = 0,
         y = (i / 30) * 100,
         z = 0,
         r = (i / 30) * 2,
       }
-      table.insert(particles, p) 
+      table.insert(particles, p)
     end
   end
 

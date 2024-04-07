@@ -69,7 +69,7 @@ local function updateAi(ai, dt)
     ai.direction = randomDirection()
   end
   -- Do obstacle avoidance
-  for lookahead = 4, 1, -1 do 
+  for lookahead = 4, 1, -1 do
     for i = 1, 8 do
       if not isPixelBlack(nextPosition(ai, lookahead)) then
         ai.direction = randomDirection()

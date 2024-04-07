@@ -29,7 +29,7 @@ function juno.onUpdate(dt)
       p.a = p.a - dt * 3
       if p.a < 0 then
         local r = math.random() * math.pi * 2
-        p.x = math.cos(r) * 20 
+        p.x = math.cos(r) * 20
         p.y = math.sin(r) * 20
         p.vx = (1 - math.random() * 2) * 90
         p.vy = (1 - math.random() * 2) * 90
