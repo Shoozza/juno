@@ -4,7 +4,7 @@
 * `gcc` or `clang` is used to compile
 * `SDL1.2` is linked to dynamically
 * `LuaJIT` is linked to dynamically, although this is optional as non-JIT Lua can be used in its place
-* `Python2.7` is used by the build script
+* `Python3` is used by the build script
 
 These dependencies must be met before building.
 
