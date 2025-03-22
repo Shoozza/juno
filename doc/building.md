@@ -10,30 +10,30 @@ These dependencies must be met before building.
 
 ## Building
 Juno can be built on Linux, Windows and OS X. To build you should first clone the repo and cd into it
-```bash
+```sh
 git clone https://github.com/rxi/juno.git
 cd juno
 ```
 
 The build script should then be executed:
-```bash
+```sh
 ./build.py
 ```
 
 On windows:
-```bash
+```sh
 build.py
 ```
 
 When the build is finished an executable named `juno` (or `juno.exe` on windows) should exist in the `bin/` directory.
 
 You can test it works by executing one of the example projects:
-```bash
+```sh
 ./bin/juno example/particles
 ```
 
 On windows:
-```bash
+```sh
 bin/juno example/particles
 ```
 
