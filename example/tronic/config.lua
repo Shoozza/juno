@@ -1,4 +1,3 @@
-
 G = {
   width   = 120,
   height  = 80,

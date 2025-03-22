@@ -1,5 +1,3 @@
-
-
 function juno.onLoad()
   juno.debug.setVisible(true)
 

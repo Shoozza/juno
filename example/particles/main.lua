@@ -1,5 +1,3 @@
-
-
 function juno.onLoad(dt)
   juno.debug.setVisible(true)
   G.screen = juno.Buffer.fromBlank(G.width, G.height)

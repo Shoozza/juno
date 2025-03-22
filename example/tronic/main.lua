@@ -1,5 +1,3 @@
-
-
 function juno.onLoad(dt)
   G.field = juno.Buffer.fromBlank(G.width, G.height)
   G.field:drawBox(0, 0, G.width, G.height)
