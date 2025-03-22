@@ -11,5 +11,4 @@ game_title.exe  (juno executable)
 pak0            (zip archive of game)
 lua51.dll
 SDL.dll
-
 ```

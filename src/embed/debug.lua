@@ -32,7 +32,7 @@ print = function(...)
       table.insert(lines, line)
     end
   else
-    table.insert(lines, str) 
+    table.insert(lines, str)
   end
   while #lines > 6 do
     table.remove(lines, 1)
@@ -133,7 +133,7 @@ local function draw()
       juno.graphics.drawText(font, v, 8, y - oy)
     end
   end
-end 
+end
 
 
 local function init()
